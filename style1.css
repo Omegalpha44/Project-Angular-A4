@@ -80,7 +80,7 @@ header {
     margin-left: 0px;
 }
 .category-nav a:hover {
-    color: white;
+    color: #DDDDDD;
 }
 .centered-container {
     display: flex;

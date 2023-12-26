@@ -2,136 +2,43 @@
 <html>
 <head>
   <title>[Course name] Lesson</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Reset default margin and padding */
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    
-    /* Centered layout */
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    
-    /* Title */
-    .title-page {
-      font-size: 70px;
-      font-family: 'Superstars';
-      color: red;
-      margin-bottom: 20px;
-    }
-    
-    /* Flipcard styles */
-    .centered-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-bottom: 50px;
-    }
-    
-    .flip-card {
-        background-color: transparent;
-        width: 600px;
-        height: 400px;
-        perspective: 1000px;
-        margin: 0 auto;
-        cursor: pointer;
-      }
-
-    .flip-card-inner {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border: 10px solid #AAAAAA;
-    }
-
-    .flip-card-front {
-      background-color: #DDDDDD;
-      color: black;
-    }
-
-    .flip-card-back {
-      background-color: #777777;
-      color: white;
-      transform: rotateY(180deg);
-    }
-
-    /* Button styles */
-    .button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      //margin-bottom: 30px;
-    }
-
-    .button {
-      padding: 10px 40px;
-      border-radius: 5px;
-      font-size: 16px;
-      margin: 50px 140px;
-      cursor: pointer;
-    }
-
-    .green-button {
-      background-color: #2ecc71;
-      color: white;
-    }
-
-    .red-button {
-      background-color: #e74c3c;
-      color: white;
-    }
-
-    /* Progress bar styles */
-    .progress-bar {
-      width: 80%;
-      height: 20px;
-      background-color: #f1f1f1;
-      border-radius: 10px;
-      margin-left: 20px;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background-color: #2ecc71;
-      border-radius: 10px;
-      transition: width 0.3s;
-    }
-  </style>
+  <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-  <div class="title-page">[Course name] Lesson</div>
+<div class = "stars">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <header>
+        <nav>
+            <ul class="category-nav">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mescours.html">Mes Cours</a></li>
+                <li><a href="lesfondateurs.html">Les Fondateurs</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="title-page">[Course name] Lesson</div>
+</div>
 
   <div class="centered-container">
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <h2>[Question]</h2>
+          <div class="flip-card-text">[Question]</div>
         </div>
         <div class="flip-card-back">
-          <h2>[Answer]</h2>
+          <div class="flip-card-text">[Answer]</div>
         </div>
       </div>
     </div>
@@ -185,7 +92,10 @@
         currentFlipcardIndex = (currentFlipcardIndex + 1) % remainingFlipcards.length;
         updateFlipcard();
       } else {
-        alert("Congratulations! Youhave completed all the flipcards.");
+        updateProgressBar();
+        setTimeout(function() {
+        alert("Congratulations! You have completed all the flipcards. Click OK to go back to the lesson list page");
+        window.location.href = "mescours.html";}, 250);
       }
     });
 
@@ -209,8 +119,8 @@
     // Function to update the flipcard content
     function updateFlipcard() {
       const currentFlipcard = remainingFlipcards[currentFlipcardIndex];
-      flipCardFront.innerHTML = `<h2>${currentFlipcard.question}</h2>`;
-      flipCardBack.innerHTML = `<h2>${currentFlipcard.answer}</h2>`;
+      flipCardFront.innerHTML = `<div class="flip-card-text">${currentFlipcard.question}</div>`;
+      flipCardBack.innerHTML = `<div class="flip-card-text">${currentFlipcard.answer}</div>`;
       flipCard.classList.remove('flipped');
     }
 
