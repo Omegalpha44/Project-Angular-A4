@@ -55,18 +55,23 @@
 
   <script>
     // Flipcard data
-    flipcards = [
-      { question: "Question 1", answer: "Answer 1" }
-      // Add more flipcard objects as needed
-    ];
+    
+    let i  = 1; // change this to the id of the project
+
+    var flipcards = [];
+    var remainingFlipcards = [];
+    let currentFlipcardIndex = 0;
+
     function dataParser(data) {
       for (let i = 0; i < data.length; i++) {
         flipcards.push({ question: data[i].element_1, answer: data[i].element_2 })
       }
     };
-    const url = "http://localhost:3000/api/projects/1/cards"
-    
-    fetch(url)
+    const url = `http://localhost:3000/api/projects/${i}/cards` // the cards
+    const url2 = "http://localhost:3000/api/projects/" // the project name
+    // fetch informations from the api
+
+    fetch(url) // fetch cards informations
     .then(response => {
     // Vérifiez si la requête a réussi (statut 200)
     if (!response.ok) {
@@ -78,18 +83,32 @@
     })
     .then(data => {
     // Utilisez les données JSON dans notre code
-    
-      console.log(data);
       dataParser(data);
       console.log(flipcards);
+      remainingFlipcards = [...flipcards];
+      updateFlipcard();
+      updateProgressBar();
     })
     .catch(error => {
     // Gérez les erreurs de requête
       console.error('Erreur de requête:', error);
     });
-    // Counter variables
-    let currentFlipcardIndex = 0;
-    let remainingFlipcards = [...flipcards];
+
+    fetch(url2) // change page name
+    .then(response => {
+    // Vérifiez si la requête a réussi (statut 200)
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+    }
+
+    return response.json();
+    })
+    .then(data2 => {
+      console.log(data2)
+      const elementAtIndexI = data2[i];
+      console.log(elementAtIndexI)
+      document.querySelector('.title-page').innerHTML = elementAtIndexI.name;
+    })
 
     // Elements
     const flipCard = document.querySelector('.flip-card');
@@ -101,9 +120,6 @@
     const redButton = document.querySelector('.red-button');
 
     // Initial setup
-    updateFlipcard();
-    updateProgressBar();
-
     // Event listeners
     flipCard.addEventListener('click', function () {
       this.classList.toggle('flipped');
@@ -139,7 +155,6 @@
       updateProgressBar();
       updateFlipcard();
     });
-
     // Function to update the flipcard content
     function updateFlipcard() {
       const currentFlipcard = remainingFlipcards[currentFlipcardIndex];
