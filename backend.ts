@@ -10,6 +10,12 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+// Add CORS headers
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
+
 // Connect to PostgreSQL database
 const sequelize = new Sequelize('node_project', 'postgres', 'root', {
     host: 'localhost',

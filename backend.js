@@ -43,6 +43,11 @@ var express = require('express');
 // Initialize express app
 var app = express();
 app.use(express.json());
+// Add CORS headers
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 // Connect to PostgreSQL database
 var sequelize = new Sequelize('node_project', 'postgres', 'root', {
     host: 'localhost',
@@ -180,7 +185,7 @@ app.post('/api/projects', function (req, res) { return __awaiter(_this, void 0, 
 }); });
 // Create a route to add a card to a project
 app.post('/api/projects/:projectNumber/cards', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
-    var projectNumber, _a, name, element_1, element_2, card, err_4;
+    var projectNumber, _a, name, element_1, element_2, id, card, err_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -188,18 +193,21 @@ app.post('/api/projects/:projectNumber/cards', function (req, res) { return __aw
                 _a = req.body, name = _a.name, element_1 = _a.element_1, element_2 = _a.element_2;
                 _b.label = 1;
             case 1:
-                _b.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, Card.create({ name: name, element_1: element_1, element_2: element_2, project_id: projectNumber })];
+                _b.trys.push([1, 4, , 5]);
+                return [4 /*yield*/, Card.count()];
             case 2:
+                id = (_b.sent()) + 1;
+                return [4 /*yield*/, Card.create({ card_id: id, name: name, element_1: element_1, element_2: element_2, project_id: projectNumber })];
+            case 3:
                 card = _b.sent();
                 res.json(card);
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 err_4 = _b.sent();
                 console.error(err_4);
                 res.status(500).json({ message: 'Server error' });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); });
