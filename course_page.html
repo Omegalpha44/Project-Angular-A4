@@ -55,14 +55,17 @@
 
   <script>
     // Flipcard data
-    const flipcards = [
-      { question: "Question 1", answer: "Answer 1" },
-      { question: "Question 2", answer: "Answer 2" },
-      { question: "Question 3", answer: "Answer 3" },
-      { question: "Question 4", answer: "Answer 4" }
+    flipcards = [
+      { question: "Question 1", answer: "Answer 1" }
       // Add more flipcard objects as needed
     ];
+    function dataParser(data) {
+      for (let i = 0; i < data.length; i++) {
+        flipcards.push({ question: data[i].element_1, answer: data[i].element_2 })
+      }
+    };
     const url = "http://localhost:3000/api/projects/1/cards"
+    
     fetch(url)
     .then(response => {
     // Vérifiez si la requête a réussi (statut 200)
@@ -74,8 +77,11 @@
     return response.json();
     })
     .then(data => {
-    // Utilisez les données JSON dans votre code
+    // Utilisez les données JSON dans notre code
+    
       console.log(data);
+      dataParser(data);
+      console.log(flipcards);
     })
     .catch(error => {
     // Gérez les erreurs de requête
@@ -146,6 +152,7 @@
     function updateProgressBar() {
       const progress = (flipcards.length - remainingFlipcards.length) / flipcards.length * 100;
       progressBarFill.style.width = `${progress}%`;
+
     }
   </script>
 </body>
