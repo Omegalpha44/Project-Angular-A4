@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CardpageComponent } from './cardpage/cardpage.component';
+import { FondateurComponent } from './fondateur/fondateur.component';
 
 
 
@@ -13,7 +14,8 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     HomeComponent,
-    CardpageComponent
+    CardpageComponent,
+    FondateurComponent
   ],
   imports: [
     BrowserModule, 
