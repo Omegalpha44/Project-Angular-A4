@@ -50,8 +50,7 @@ body {
 
 header {
     background-color: white;
-    opacity: 1;
-    color: white;
+    opacity: 1;;
     padding: 30px 0;
     margin-top: -15%;
     margin-left: -30%;
@@ -91,9 +90,9 @@ header {
 }
 
 .large-text {
-    font-size: 110px; /* Larger text for headings */
-    margin-top: 1%;
-    margin-left: -25%
+    font-size: 102px; /* Larger text for headings */
+    margin-top: 0.5%;
+    margin-left: -23%
 }
 .small-text {
     font-size: 14px; /* Smaller text for paragraphs */
@@ -103,7 +102,7 @@ header {
     position: absolute; /* ou 'fixed' si vous voulez que le paragraphe reste en place lors du défilement */
     color: white;
     top: 80%; /* Centrer verticalement */
-    right: -8%; /* Aligner à droite */
+    right: 0%; /* Aligner à droite */
     transform: translateY(-50%); /* Ajuster pour un centrage précis verticalement */
     width: 80%; /* Ou la largeur que vous souhaitez pour votre paragraphe */
     display: flex;
