@@ -540,41 +540,40 @@ header {
       margin: 0;
       padding: 0;
     }
-    
+
     /* Centered layout */
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      justify-content: space-between;
+      padding: 1vh;
     }
     
     /* Title */
     .title-page {
-      font-size: 70px;
-      font-family: 'Superstars';
-      color: white;
-      margin-top: 20px;
-      text-align: center;
+        font-size: 7vh; /* Adjust font size */
+        font-family: 'Superstars';
+        color: white;
+        margin-top: 8vh; /* Adjust margin */
+        text-align: center;
     }
     
     /* Flipcard styles */
     .centered-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 125px;
-      height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1; /* Allow container to grow */
+        margin-bottom: -0vh;
+        margin-top: -5vh;
     }
     
     .flip-card {
         background-color: transparent;
-        width: 600px;
-        height: 400px;
+        width: 45vw; /* Use percentage width */
+        height: 50vh; /* Use percentage height */
         perspective: 1000px;
-        margin: 0 auto;
         cursor: pointer;
       }
 
@@ -600,7 +599,7 @@ header {
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border: 10px solid #AAAAAA;
+      border: 1vh solid #AAAAAA;
     }
 
     .flip-card-front {
@@ -615,7 +614,7 @@ header {
     }
 
     .flip-card-text {
-      font-size: 50px;
+      font-size: 5vh;
       font-family: 'Superstars';
       display: flex; /* Use flexbox */
       justify-content: center; /* Horizontal centering */
@@ -625,20 +624,20 @@ header {
 
     /* Button styles */
     .button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 30px;
-      z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3vh; /* Adjust margin */
     }
 
     .button {
-      padding: 10px 40px;
-      border-radius: 5px;
-      font-size: 16px;
-      font-family: 'Superstars';
-      margin: 50px 150px;
-      cursor: pointer;
+        padding: 1vh 6vw; /* Use percentage padding */
+        border-radius: 5px;
+        font-size: 2vh; /* Adjust font size */
+        font-family: 'Superstars';
+        margin: 2vh 4vw; /* Use percentage margin */
+        cursor: pointer;
+        z-index: 1;
     }
 
     .green-button {
@@ -653,12 +652,11 @@ header {
 
     /* Progress bar styles */
     .progress-bar {
-      width: 80%;
-      height: 20px;
+      width: 70%;
+      height: 2vh;
       background-color: #f1f1f1;
       border-radius: 10px;
-      margin-left: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 5vh;
     }
 
     .progress-bar-fill {
