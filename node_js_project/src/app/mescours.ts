@@ -1,7 +1,7 @@
 export interface MesCours{
-  id: number;
+  created_at: string;
+  description: string;
   name: string;
-  course: string;
-  photo: string;
-  nCards: number;
+  project_id: number;
+  image: string;
 }

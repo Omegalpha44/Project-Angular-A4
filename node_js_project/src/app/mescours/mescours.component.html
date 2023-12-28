@@ -4,3 +4,8 @@
     <button class="primary" type="button">Search</button>
   </form>
 </section>
+<section class="listing">
+  <img class="listing-photo" [src]="cours.image" alt="Exterior photo of {{cours.name}}">
+  <h2 class="listing-heading">{{ cours.name }}</h2>
+  <p class="listing-location">{{ cours.created_at}}, {{cours.description}}</p>
+</section>

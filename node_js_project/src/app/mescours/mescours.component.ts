@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {CommonModule} from "@angular/common";
 import {MesCours} from "../mescours";
 
 @Component({
@@ -7,13 +8,12 @@ import {MesCours} from "../mescours";
   styleUrls: ['./mescours.component.css']
 })
 export class MescoursComponent {
-  readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
+    cours: MesCours = {
+        created_at: '2023-12-18',
+        description: 'test',
+        name: 'maths',
+        project_id: 1,
+        image:'/assets/maths.png'
+    };
 
-  cours : MesCours = {
-    id: 9999,
-    name: 'algebra',
-    course: 'maths',
-    photo: '${this.baseUrl}/example-house.jpg',
-    nCards: 10,
-  };
 }
