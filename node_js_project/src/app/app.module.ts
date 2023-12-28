@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CardpageComponent } from './cardpage/cardpage.component';
 import { FondateurComponent } from './fondateur/fondateur.component';
+import { MescoursComponent } from './mescours/mescours.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CardpageComponent,
-    FondateurComponent
+    FondateurComponent,
+    MescoursComponent
   ],
   imports: [
     BrowserModule,
