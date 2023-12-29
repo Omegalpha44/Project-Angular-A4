@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import {CommonModule} from "@angular/common";
-import {MesCours} from "../mescours";
+import {Component} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Renderer2} from "@angular/core";
+
 
 @Component({
   selector: 'app-mescours',
@@ -8,12 +9,13 @@ import {MesCours} from "../mescours";
   styleUrls: ['./mescours.component.css']
 })
 export class MescoursComponent {
-    cours: MesCours = {
-        created_at: '2023-12-18',
-        description: 'test',
-        name: 'maths',
-        project_id: 1,
-        image:'/assets/maths.png'
-    };
+  constructor(private renderer: Renderer2, private route: ActivatedRoute) { }
 
+  ngOnInit() {
+    const indice = this.route.snapshot.queryParamMap.get('indice');
+    (window as any).indice = indice;
+    const script = this.renderer.createElement('script');
+    script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
+    this.renderer.appendChild(document.body, script);
+  }
 }

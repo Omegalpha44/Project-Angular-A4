@@ -1,11 +1,59 @@
-<section>
-  <form>
-    <input type="text" placeholder="Filter by course">
-    <button class="primary" type="button">Search</button>
-  </form>
-</section>
-<section class="listing">
-  <img class="listing-photo" [src]="cours.image" alt="Exterior photo of {{cours.name}}">
-  <h2 class="listing-heading">{{ cours.name }}</h2>
-  <p class="listing-location">{{ cours.created_at}}, {{cours.description}}</p>
-</section>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[Course name] Lesson</title>
+  <link rel="stylesheet" href="mescours.component.css">
+</head>
+<body data-i=1>
+
+<div class = "stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+
+  <header>
+    <nav>
+      <ul class="category-nav">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li><a href="/mescours">Mes Cours</a></li>
+        <li><a routerLink="/fondateurs">Les Fondateurs</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<div class="title-page">Mes Cours</div>
+
+<div class="centered-container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <div class="flip-card-text text-center">[Question]</div>
+      </div>
+      <div class="flip-card-back">
+        <div class="flip-card-text text-center">[Answer]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar">
+  <div class="progress-bar-fill"></div>
+</div>
+
+<div class="button-container">
+  <button class="button red-button">Misunderstood</button>
+  <button class="button green-button">Understood</button>
+</div>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>
