@@ -1,7 +1,6 @@
 
 // Flipcard data
-
-let i = 2; // change this to the id of the project
+let i = window.indice; // change this to the id of the project
 console.log(i);
 var flipcards = [];
 var remainingFlipcards = [];
