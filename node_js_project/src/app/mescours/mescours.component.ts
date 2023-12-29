@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Renderer2} from "@angular/core";
+import {AgGridModule} from "ag-grid-angular";
+import {ColDef} from 'ag-grid-community';
 
 
 @Component({
@@ -17,5 +19,16 @@ export class MescoursComponent {
     const script = this.renderer.createElement('script');
     script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
     this.renderer.appendChild(document.body, script);
+
+    rowData: [
+        {created_at: "2021-01-01", description: "description 1", name: "name", project_id: 1}
+    ];
+
+    colDefs: [
+        {field: "created_at"},
+        {field: "description"},
+        {field: "name"},
+        {field: "project_id"}
+    ];
   }
 }
