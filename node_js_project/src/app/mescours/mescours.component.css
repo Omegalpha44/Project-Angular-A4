@@ -1,3 +1,6 @@
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+
 @font-face {
   font-family: 'Superstars';
   src: url('fonts/Starshines.otf') format('opentype'),
@@ -665,3 +668,5 @@ body {
   border-radius: 10px;
   transition: width 0.3s;
 }
+
+

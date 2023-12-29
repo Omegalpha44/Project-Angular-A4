@@ -14,6 +14,8 @@ import {FormsModule} from "@angular/forms";
 })
 
 export class MescoursComponent {
+  rowData: any;
+  colDefs: any;
   constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
   ngOnInit() {
     const indice = this.route.snapshot.queryParamMap.get('indice');
@@ -22,10 +24,10 @@ export class MescoursComponent {
     script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
     this.renderer.appendChild(document.body, script);
 
-    const rowData: any[] = [
+    this.rowData = [
       {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1}
     ]
-    const colDefs: ColDef[] = [
+    this.colDefs = [
       {field: "created_at"},
       {field: "description"},
       {field: "name"},
