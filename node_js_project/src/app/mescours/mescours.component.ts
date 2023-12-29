@@ -3,7 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {Renderer2} from "@angular/core";
 import {AgGridModule} from "ag-grid-angular";
 import {ColDef} from "ag-grid-community";
-
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
 
 
 @Component({
@@ -21,15 +22,16 @@ export class MescoursComponent {
     script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
     this.renderer.appendChild(document.body, script);
 
-    const rowData = [
-        {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1}
+    const rowData: any[] = [
+      {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1}
     ]
-   const colDefs: ColDef[] = [
-       {field: "created_at"},
-       {field: "description"},
-       {field: "name"},
-       {field: "project_id"}
-   ]
+    const colDefs: ColDef[] = [
+      {field: "created_at"},
+      {field: "description"},
+      {field: "name"},
+      {field: "project_id"}
+    ]
+
   }
 }
 

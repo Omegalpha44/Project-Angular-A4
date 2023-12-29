@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { CardpageComponent } from './cardpage/cardpage.component';
 import { FondateurComponent } from './fondateur/fondateur.component';
 import { MescoursComponent } from './mescours/mescours.component';
+import {AgGridModule} from "ag-grid-angular";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MescoursComponent } from './mescours/mescours.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
