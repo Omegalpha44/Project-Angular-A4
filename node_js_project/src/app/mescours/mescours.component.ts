@@ -3,7 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {Renderer2} from "@angular/core";
 import {AgGridModule} from "ag-grid-angular";
 import {ColDef} from "ag-grid-community";
-
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {FormsModule} from "@angular/forms";
 
 
 @Component({
@@ -13,6 +14,9 @@ import {ColDef} from "ag-grid-community";
 })
 
 export class MescoursComponent {
+  rowData: any;
+  colDefs: any;
+  gridOptions: any;
   constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
   ngOnInit() {
     const indice = this.route.snapshot.queryParamMap.get('indice');
@@ -22,15 +26,22 @@ export class MescoursComponent {
     
     this.renderer.appendChild(document.body, script);
 
-    const rowData = [
-        {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1}
+    this.rowData = [
+      {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1},
+      {created_at: "2021-01-01", description: "description 2", name: "project 2", project_id: 2}
     ]
-   const colDefs: ColDef[] = [
-       {field: "created_at"},
-       {field: "description"},
-       {field: "name"},
-       {field: "project_id"}
-   ]
+    this.colDefs = [
+      {field: "created_at"},
+      {field: "description"},
+      {field: "name"},
+      {field: "project_id"}
+    ]
+
+    this.gridOptions = {
+      autoSizeStrategy: {
+        type: 'fitCellContents'
+      },
+    };
   }
 }
 
