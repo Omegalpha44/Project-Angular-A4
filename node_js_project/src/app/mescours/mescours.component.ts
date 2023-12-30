@@ -6,7 +6,7 @@ import {ColDef} from "ag-grid-community";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-mescours',
   templateUrl: './mescours.component.html',
@@ -17,7 +17,7 @@ export class MescoursComponent {
   rowData: any;
   columnDefs: any;
   gridOptions: any;
-  constructor(private renderer: Renderer2, private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private renderer: Renderer2, private route: ActivatedRoute, private http: HttpClient, private router : Router) {}
   ngOnInit() {
     this.columnDefs = [
       {field: "created_at"},
@@ -31,10 +31,9 @@ export class MescoursComponent {
     this.gridOptions = {
       domLayout: 'autoHeight',
     };
-    
   }
   onRowClicked(event: any) {
-    console.log('Row clicked: ', event.data);
+    this.router.navigate(['/cardpage'], { queryParams: { indice: event.data.project_id } });
   }
   onGridReady(params: any) {
     params.api.autoSizeColumns();

@@ -48,10 +48,10 @@ fetch(url2) // change page name
     return response.json();
   })
   .then(data2 => {
-    console.log(data2)
-    const elementAtIndexI = data2[i];
-    console.log(elementAtIndexI)
-    document.querySelector('.title-page').innerHTML = elementAtIndexI.name;
+    console.log(data2);
+    const project = data2[i-1];
+    console.log(project);
+    document.querySelector('.title-page').innerHTML = project.name;
   })
 
 // Elements
@@ -79,7 +79,7 @@ greenButton.addEventListener('click', function () {
     updateProgressBar();
     setTimeout(function() {
       alert("Congratulations! You have completed all the flipcards. Click OK to go back to the lesson list page");
-      window.location.href = "mescours.html";}, 250);
+      window.location.href = "/home";}, 250);
   }
 });
 
