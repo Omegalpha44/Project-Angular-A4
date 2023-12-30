@@ -39,3 +39,4 @@ insert into card values (8, 'card 7', 'quel est le contraire de la mort ?', 'la 
 insert into card values (9, 'card 8', 'Quelle figure de style est utilisée dans la phrase suivante : "Le soleil se levait à l’horizon, tel un grand disque rouge" ?', 'une comparaison', 5);
 insert into card values (10, 'card 9', 'quel poete a ecrit le bateau ivre ?', 'Arthur Rimbaud', 5);
 select * from project;
+select * from card;
