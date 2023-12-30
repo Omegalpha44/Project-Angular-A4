@@ -16,6 +16,7 @@ import {FormsModule} from "@angular/forms";
 export class MescoursComponent {
   rowData: any;
   colDefs: any;
+  gridOptions: any;
   constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
   ngOnInit() {
     const indice = this.route.snapshot.queryParamMap.get('indice');
@@ -25,7 +26,8 @@ export class MescoursComponent {
     this.renderer.appendChild(document.body, script);
 
     this.rowData = [
-      {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1}
+      {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1},
+      {created_at: "2021-01-01", description: "description 2", name: "project 2", project_id: 2}
     ]
     this.colDefs = [
       {field: "created_at"},
@@ -34,6 +36,11 @@ export class MescoursComponent {
       {field: "project_id"}
     ]
 
+    this.gridOptions = {
+      autoSizeStrategy: {
+        type: 'fitCellContents'
+      },
+    };
   }
 }
 

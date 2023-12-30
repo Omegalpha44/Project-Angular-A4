@@ -669,4 +669,9 @@ body {
   transition: width 0.3s;
 }
 
+.ag-theme-quartz {
+  --ag-font-family: 'Superstars';
+  --ag-data-color: white;
+  color: white;
+}
 
