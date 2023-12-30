@@ -5,7 +5,7 @@ import {AgGridModule} from "ag-grid-angular";
 import {ColDef} from "ag-grid-community";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule} from "@angular/forms";
-
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-mescours',
@@ -15,33 +15,29 @@ import {FormsModule} from "@angular/forms";
 
 export class MescoursComponent {
   rowData: any;
-  colDefs: any;
+  columnDefs: any;
   gridOptions: any;
-  constructor(private renderer: Renderer2, private route: ActivatedRoute) {}
+  constructor(private renderer: Renderer2, private route: ActivatedRoute, private http: HttpClient) {}
   ngOnInit() {
-    const indice = this.route.snapshot.queryParamMap.get('indice');
-    (window as any).indice = indice;
-    const script = this.renderer.createElement('script');
-    script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
-    
-    this.renderer.appendChild(document.body, script);
-
-    this.rowData = [
-      {created_at: "2021-01-01", description: "description 1", name: "project 1", project_id: 1},
-      {created_at: "2021-01-01", description: "description 2", name: "project 2", project_id: 2}
-    ]
-    this.colDefs = [
+    this.columnDefs = [
       {field: "created_at"},
       {field: "description"},
       {field: "name"},
       {field: "project_id"}
     ]
-
+    this.http.get('http://localhost:3000/api/projects').subscribe((data: any) => {
+      this.rowData = data;
+    });
     this.gridOptions = {
-      autoSizeStrategy: {
-        type: 'fitCellContents'
-      },
+      domLayout: 'autoHeight',
     };
+    
+  }
+  onRowClicked(event: any) {
+    console.log('Row clicked: ', event.data);
+  }
+  onGridReady(params: any) {
+    params.api.autoSizeColumns();
   }
 }
 

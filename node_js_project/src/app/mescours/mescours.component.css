@@ -1,6 +1,5 @@
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-quartz.css';
-
 @font-face {
   font-family: 'Superstars';
   src: url('fonts/Starshines.otf') format('opentype'),
@@ -671,7 +670,17 @@ body {
 
 .ag-theme-quartz {
   --ag-font-family: 'Superstars';
-  --ag-data-color: white;
-  color: white;
+  --ag-data-color: #000000;
+  color: #0d0f18;
+  background-color: #0d1d31;
+  border-color: #0d1d31;
+  font-family: 'Superstars';
+  font-size: 16px; 
+  font-weight: bold;
+  line-height: normal; 
+  text-align: left; 
+  border: 4px solid #000;
 }
-
+.ag-theme-alpine {
+  color: #0d0f18;
+}

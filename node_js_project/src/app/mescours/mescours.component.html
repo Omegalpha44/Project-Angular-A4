@@ -3,6 +3,18 @@
 <head>
   <title>[Course name] Lesson</title>
   <link rel="stylesheet" href="mescours.component.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-quartz.css"
+  />
+  <style>
+    .square {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 10px;
+    }
+  </style>
 </head>
 <body data-i=1>
 
@@ -32,24 +44,14 @@
 
 <div class="title-page">Mes Cours</div>
 
-<div class="centered-container">
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <div class="flip-card-text text-center">Projet</div>
-      </div>
-      <div class="flip-card-back">
-        <div class="flip-card-text text-center">Liste des noms des cartes</div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="centered-container">
-  <ag-grid-angular class="ag-theme-quartz" style="width:500px"  [rowData]="rowData" [columnDefs]="colDefs"></ag-grid-angular>
-</div>
-
-
-
-<script src="../../assets/script.js"></script>
+<ag-grid-angular 
+style="width: 1000px; height: 1000px;"
+class="ag-theme-quartz"
+[rowData]="rowData"
+[columnDefs]="columnDefs"
+[gridOptions]="gridOptions"
+(rowClicked)="onRowClicked($event)"
+(gridReady)="onGridReady($event)">
+> </ag-grid-angular>
 </body>
 </html>
