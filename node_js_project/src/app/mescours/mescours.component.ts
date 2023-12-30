@@ -19,6 +19,7 @@ export class MescoursComponent {
     (window as any).indice = indice;
     const script = this.renderer.createElement('script');
     script.src = '../../assets/script.js'; // Replace with the actual path to the JavaScript file
+    
     this.renderer.appendChild(document.body, script);
 
     const rowData = [
